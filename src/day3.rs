@@ -1,5 +1,7 @@
 use std::fs;
 
+use crate::read_file_to_vec;
+
 fn find_largest_two_digits(pack: &str) -> (usize, usize) {
     let digits: Vec<_> = pack
         .chars()
@@ -35,9 +37,8 @@ fn turn_on_batteries(battery_pack: Vec<String>) -> usize {
 }
 
 pub fn part1() {
-    let file: Vec<_> = fs::read_to_string("puzzles/d3p1.txt")
-        .expect("Failed to open d3p1.txt")
-        .split("\n")
+    let file: Vec<_> = read_file_to_vec("d3p1", "\n")
+        .iter()
         .filter(|s| !s.is_empty())
         .map(|s| s.to_string())
         .collect();
@@ -87,9 +88,8 @@ fn turn_on_12_batteries(battery_pack: Vec<String>) -> usize {
         .sum()
 }
 pub fn part2() {
-    let file: Vec<_> = fs::read_to_string("puzzles/d3p1.txt")
-        .expect("Failed to open d3p1.txt")
-        .split("\n")
+    let file: Vec<_> = read_file_to_vec("d3p1", "\n")
+        .iter()
         .filter(|s| !s.is_empty())
         .map(|s| s.to_string())
         .collect();

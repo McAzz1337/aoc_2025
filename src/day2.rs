@@ -1,5 +1,7 @@
 use std::{fs, ops::Range};
 
+use crate::read_file_to_vec;
+
 fn find_invalid_ids_p1(ranges: Vec<Range<usize>>) -> usize {
     ranges
         .iter()
@@ -34,9 +36,8 @@ fn find_invalid_ids_p1(ranges: Vec<Range<usize>>) -> usize {
 }
 
 pub fn part1() {
-    let file: Vec<Range<usize>> = fs::read_to_string("puzzles/d2p1.txt")
-        .expect("Failed to lod d2p1.txt")
-        .split(",")
+    let file: Vec<Range<usize>> = read_file_to_vec("d2p1", ",")
+        .iter()
         .map(|s| s.trim())
         .map(|s| {
             let (start, end) = s.split_once("-").unwrap();
@@ -92,9 +93,8 @@ fn find_invalid_ids_p2(ranges: Vec<Range<usize>>) -> usize {
 }
 
 pub fn part2() {
-    let file: Vec<Range<usize>> = fs::read_to_string("puzzles/d2p1.txt")
-        .expect("Failed to lod d2p1.txt")
-        .split(",")
+    let file: Vec<Range<usize>> = read_file_to_vec("d2p1", ",")
+        .iter()
         .map(|s| s.trim())
         .map(|s| {
             let (start, end) = s.split_once("-").unwrap();

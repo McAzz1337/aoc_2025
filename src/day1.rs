@@ -1,5 +1,7 @@
 use std::{fmt::Pointer, fs};
 
+use crate::read_file_to_vec;
+
 struct Dial {
     pointer: i16,
     password: u64,
@@ -62,12 +64,7 @@ fn turn_dial_right(dial: &mut Dial, n: i16) {
 }
 
 pub fn part1() {
-    let file: Vec<_> = fs::read_to_string("puzzles/d1p1.txt")
-        .expect("d1p1 not found")
-        .split("\n")
-        .filter(|s| !s.is_empty())
-        .map(|s| s.to_string())
-        .collect();
+    let file = read_file_to_vec("d1p1", "\n");
 
     let mut dial = Dial::new(true);
     file.iter()
@@ -91,12 +88,7 @@ pub fn part1() {
 }
 
 pub fn part2() {
-    let file: Vec<_> = fs::read_to_string("puzzles/d1p1.txt")
-        .expect("d1p1 not found")
-        .split("\n")
-        .filter(|s| !s.is_empty())
-        .map(|s| s.to_string())
-        .collect();
+    let file = read_file_to_vec("d1p1", "\n");
 
     let mut dial = Dial::new(false);
     file.iter()
