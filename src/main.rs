@@ -1,8 +1,18 @@
-use std::thread;
+use std::{fs, thread};
 
 mod day1;
 mod day2;
 mod day3;
+
+fn read_file_to_vec(path: &str, delimeter: &str) -> Vec<String> {
+    let path = String::from("puzzles/") + path + ".txt";
+    fs::read_to_string(&path)
+        .expect(&format!("Failed to read file: {path}"))
+        .split(delimeter)
+        .filter(|s| !s.is_empty())
+        .map(|s| s.to_owned())
+        .collect()
+}
 
 fn main() {
     let funcs = vec![
