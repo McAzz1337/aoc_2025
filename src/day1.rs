@@ -1,5 +1,3 @@
-use std::{fmt::Pointer, fs};
-
 use crate::read_file_to_vec;
 
 struct Dial {
@@ -30,7 +28,7 @@ impl Dial {
         }
     }
 
-    fn turn_right(&mut self, mut n: i16) {
+    fn turn_right(&mut self, n: i16) {
         (0..n).for_each(|_| self.nudge_right());
         if self.count_end && self.pointer == 0 {
             self.password += 1;
@@ -47,7 +45,7 @@ impl Dial {
         }
     }
 
-    fn turn_left(&mut self, mut n: i16) {
+    fn turn_left(&mut self, n: i16) {
         (0..n).for_each(|_| self.nudge_left());
         if self.count_end && self.pointer == 0 {
             self.password += 1;

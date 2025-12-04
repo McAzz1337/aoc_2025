@@ -1,5 +1,3 @@
-use std::fs;
-
 use crate::read_file_to_vec;
 
 fn find_largest_two_digits(pack: &str) -> (usize, usize) {
@@ -39,7 +37,6 @@ fn turn_on_batteries(battery_pack: Vec<String>) -> usize {
 pub fn part1() {
     let file: Vec<_> = read_file_to_vec("d3p1", "\n")
         .iter()
-        .filter(|s| !s.is_empty())
         .map(|s| s.to_string())
         .collect();
     let res = turn_on_batteries(file);
@@ -90,7 +87,6 @@ fn turn_on_12_batteries(battery_pack: Vec<String>) -> usize {
 pub fn part2() {
     let file: Vec<_> = read_file_to_vec("d3p1", "\n")
         .iter()
-        .filter(|s| !s.is_empty())
         .map(|s| s.to_string())
         .collect();
     let res = turn_on_12_batteries(file);
