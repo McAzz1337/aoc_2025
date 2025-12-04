@@ -3,6 +3,7 @@ use std::{fs, thread};
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 fn read_file_to_vec(path: &str, delimeter: &str) -> Vec<String> {
     let path = String::from("puzzles/") + path + ".txt";
@@ -22,6 +23,8 @@ fn main() {
         day2::part2,
         day3::part1,
         day3::part2,
+        day4::part1,
+        day4::part2,
     ];
 
     let threads: Vec<_> = funcs.iter().map(|f| thread::spawn(f.clone())).collect();
