@@ -37,18 +37,13 @@ pub fn part1() {
 }
 
 fn ranges_overlap(a: &RangeInclusive<usize>, b: &RangeInclusive<usize>) -> bool {
-    let res = a.contains(&b.start())
-        || a.contains(&b.end())
-        || b.contains(&a.start())
-        || b.contains(&a.end());
-    res
+    a.contains(&b.start()) || a.contains(&b.end()) || b.contains(&a.start()) || b.contains(&a.end())
 }
 
 fn merge_ranges(a: &RangeInclusive<usize>, b: &RangeInclusive<usize>) -> RangeInclusive<usize> {
     let start = a.start().min(b.start());
     let end = a.end().max(b.end());
-    let res = RangeInclusive::new(*start, *end);
-    res
+    RangeInclusive::new(*start, *end)
 }
 
 pub fn count_fresh_ids_in_ranges(ranges: &Vec<RangeInclusive<usize>>) -> usize {
